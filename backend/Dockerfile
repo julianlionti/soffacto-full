@@ -16,7 +16,7 @@ WORKDIR /usr/src/app
 
 COPY --from=base /usr/src/app/node_modules ./node_modules
 COPY --from=base /usr/src/app/dist ./dist
-# COPY ./.env ./.env
+COPY ./.env ./.env
 
-run node ./dist/index.js
-# CMD ["node", "./dist/index.js"]
+# run node ./dist/index.js
+CMD ["node", "./dist/index.js"]
