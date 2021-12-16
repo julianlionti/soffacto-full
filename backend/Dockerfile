@@ -18,3 +18,4 @@ COPY --from=base /usr/src/app/node_modules ./node_modules
 COPY --from=base /usr/src/app/dist ./dist
 
 run node ./dist/index.js
+# CMD ["node", "./dist/index.js"]
