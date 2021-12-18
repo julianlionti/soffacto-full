@@ -5,12 +5,8 @@ services:
     container_name: soffacto_front
     restart: unless-stopped
 
-    # volumes:
-    #   - ./frontend:/usr/src/app
-    #   - /usr/src/app/node_modules
-
     ports:
-      - 3000:80
+      - 8085:80
 
     networks:
       - react-express
@@ -33,9 +29,6 @@ services:
 
     depends_on:
       - mongo
-
-    # env_file:
-    #   - ./backend/.env
 
     # expose:
     #   - 3000
