@@ -20,29 +20,28 @@ services:
     restart: unless-stopped
 
     volumes:
-      - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
+      - "/home/shared/$NAME/images:/container/folder"
 
     networks:
       - react-express
       - express-mongo
 
-    # depends_on:
-    #   - mongo
+    depends_on:
+      - mongo
 
     expose:
       - 5000
 
-  # mongo:
-  #   container_name: soffacto_mongo
-  #   restart: unless-stopped
-  #   image: mongo:5.0.5
-  #   volumes:
-  #     - ./data:/data/db
-  #   networks:
-  #     - express-mongo
-  #   expose:
-  #     - 27017
+  mongo:
+    container_name: soffacto_mongo
+    restart: unless-stopped
+    image: mongo:5.0.5
+    volumes:
+      - "/home/shared/$NAME/data:/data/db"
+    networks:
+      - express-mongo
+    expose:
+      - 27017
 
 networks:
   react-express:

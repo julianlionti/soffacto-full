@@ -1,6 +1,5 @@
 import express from "express";
 import Config from "../config/config";
-import cors from "cors";
 import api from "../routes/api";
 
 export const createServer = (): Express.Application => {
@@ -9,7 +8,6 @@ export const createServer = (): Express.Application => {
     console.log("SOffacto running on PORT ", Config.PORT);
   });
 
-  // app.use(cors());
   app.use(express.json());
   app.use("/api", api());
 
