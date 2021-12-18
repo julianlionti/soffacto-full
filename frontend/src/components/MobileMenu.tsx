@@ -18,7 +18,7 @@ import { Sections } from "./Section";
 
 type TraType = TransitionProps & { children?: React.ReactElement<any, any> };
 const Transition = forwardRef<Ref<unknown>, TraType>((props, ref) => (
-  <Slide direction="up" ref={ref} {...props} />
+  <Slide direction="up" ref={ref} {...(props as any)} />
 ));
 
 const Root = styled("div")`
