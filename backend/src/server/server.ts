@@ -9,9 +9,9 @@ export const createServer = (): Express.Application => {
     console.log("SOffacto running on PORT ", Config.PORT);
   });
 
-  app.use(cors());
+  // app.use(cors());
   app.use(express.json());
-  app.use("/api", api());
+  app.use("/", api());
 
   return app;
 };
