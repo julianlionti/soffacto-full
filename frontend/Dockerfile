@@ -7,7 +7,7 @@ RUN npm ci
 
 COPY . .
 
-RUN npm run start
+CMD [ "npm",  "start" ]
 
 # RUN npm run build
 
