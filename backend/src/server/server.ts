@@ -11,7 +11,7 @@ export const createServer = (): Express.Application => {
 
   // app.use(cors());
   app.use(express.json());
-  app.use("/", api());
+  app.use("/api", api());
 
   return app;
 };
