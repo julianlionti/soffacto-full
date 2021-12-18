@@ -24,11 +24,14 @@ pipeline {
       }
     }
     
-    stage('Test') {
-      steps {
-        sh 'npm run test'
-      }
-    }
+    // stage('Test') {
+    //   steps {
+    //     sh 'cd frontend && npm run test'
+    //   }
+    //   steps {
+    //     sh 'cd backend && npm run test'
+    //   }
+    // }
 
     stage('Run') {
       steps {
