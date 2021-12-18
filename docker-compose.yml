@@ -30,19 +30,19 @@ services:
     depends_on:
       - mongo
 
-    # expose:
-    #   - 3000
-
-  mongo:
-    container_name: soffacto_mongo
-    restart: unless-stopped
-    image: mongo:5.0.5
-    volumes:
-      - ./data:/data/db
-    networks:
-      - express-mongo
     expose:
-      - 27017
+      - 5000
+
+  # mongo:
+  #   container_name: soffacto_mongo
+  #   restart: unless-stopped
+  #   image: mongo:5.0.5
+  #   volumes:
+  #     - ./data:/data/db
+  #   networks:
+  #     - express-mongo
+  #   expose:
+  #     - 27017
 
 networks:
   react-express:
