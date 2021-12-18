@@ -1,4 +1,11 @@
+import axios from "axios";
+import { useEffect } from "react";
+
 const App = () => {
+  useEffect(() => {
+    axios.get("/api").then(({ data }) => console.log(data));
+  }, []);
+
   return (
     <div>
       <h1>Soffacto</h1>
