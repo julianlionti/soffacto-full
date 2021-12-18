@@ -1,10 +1,7 @@
 pipeline {
-  agent {
-    node {
-      label 'node'
-    }
+  agent any
+  tools { nodejs "node" }
 
-  }
   stages {
     stage('Tooling versions') {
       steps {
@@ -26,6 +23,12 @@ pipeline {
         sh 'docker-compose push'
       }
     }
+    
+    stage('Test') {
+      steps {
+        sh 'npm run test'
+      }
+    }
 
     stage('Run') {
       steps {
@@ -36,12 +39,6 @@ pipeline {
     stage('Logout') {
       steps {
         sh 'docker logout'
-      }
-    }
-
-    stage('Test') {
-      steps {
-        sh 'npm run test'
       }
     }
 
