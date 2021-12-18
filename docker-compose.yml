@@ -27,8 +27,8 @@ services:
       - react-express
       - express-mongo
 
-    depends_on:
-      - mongo
+    # depends_on:
+    #   - mongo
 
     expose:
       - 5000
