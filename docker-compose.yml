@@ -22,6 +22,9 @@ services:
     volumes:
       - "/home/shared/$NAME/images:/container/folder"
 
+    env_file:
+      - .env
+
     networks:
       - react-express
       - express-mongo
