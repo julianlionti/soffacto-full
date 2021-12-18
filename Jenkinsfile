@@ -45,6 +45,6 @@ pipeline {
   }
   environment {
     userName = 'racinglocura07'
-    DOCKERHUB_CREDENTIALS = 'credentials(\'dockerhub\')'
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
 }
