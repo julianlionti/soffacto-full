@@ -1,4 +1,4 @@
-FROM node:14.15.4-alpine as base
+FROM node:14.15.4-alpine as build
 
 WORKDIR /app
 COPY package*.json ./
@@ -7,13 +7,11 @@ RUN npm ci
 
 COPY . .
 
-CMD [ "npm",  "start" ]
+RUN npm run build
 
-# RUN npm run build
+FROM nginx:1.21.3
 
-# FROM nginx:1.21.4
+COPY --from=build /app/dist/ /usr/share/nginx/html
+# COPY --from=build /app/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-# COPY --from=base /app/dist/ /usr/share/nginx/html
-# # COPY --from=base /app/nginx/nginx.conf /etc/nginx/conf.d/default.conf
-
-# ENTRYPOINT ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
